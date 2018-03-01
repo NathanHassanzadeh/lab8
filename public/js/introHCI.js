@@ -12,15 +12,18 @@ function initializePage() {
 	console.log("Page ready");
  	initCamera();
  	initGestures();
- 	initRSVPForm();
+ 	//initRSVPForm();
 }
 
 // init jQuery gestures  
 function initGestures() {
-	// add gestures listener here
-}
-
-// init RSVP form submit listener
-function initRSVPForm() {
-  // add your code here
+	$(function(){
+		$(".judge-img").bind("taphold",tapholdHandler);
+		
+		function tapholdHandler(event){
+			var targetIDPrefix = event.target.id;
+			console.log("got prefix: " + targetIDPrefix);
+			$("#" + targetIDPrefix + "-bio").show();
+		}
+	});
 }
